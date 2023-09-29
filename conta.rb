@@ -7,7 +7,20 @@ class Conta
     @saldo = saldo
   end
 
-  def numero
-    @numero
+  def sacar(valor)
+    if saldo >= valor
+      self.saldo -= valor #self ou @ significa esta ou seja o saldo desta conta
+    else
+      puts "não foi possivel sacar"
+    end
+  end
 
+  def depositar(valor)
+    self.saldo += valor
+  end
+
+  def transferir(conta_destino, valor)#essaconta é criada usando: variavel = Conta.new(1, "joe", 100) isso é valores dos atributos na ordem.
+    self.sacar(valor)
+    conta_destino.depositar(valor)
+  end
 end

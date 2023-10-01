@@ -8,7 +8,7 @@ class Conta
   end
 
   def sacar(valor)
-    if saldo >= valor
+    if saldo >= valor #só pode sacar um valor se for maior ou igual ao saldo
       self.saldo -= valor #self ou @ significa esta ou seja o saldo desta conta
     else
       puts "não foi possivel sacar"
@@ -20,7 +20,9 @@ class Conta
   end
 
   def transferir(conta_destino, valor)#essaconta é criada usando: variavel = Conta.new(1, "joe", 100) isso é valores dos atributos na ordem.
-    self.sacar(valor)
-    conta_destino.depositar(valor)
+    if self.sacar(valor) >= saldo
+      conta_destino.depositar(valor)#o ruby automaticamente põe "self" aqui colocamos conta estino para impedir dele fazer isso
+    else
+      puts "saldo insuficiente"
   end
 end

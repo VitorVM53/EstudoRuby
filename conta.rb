@@ -1,3 +1,5 @@
+require_relative 'cliente' #carrego por estarem na mesma pasta
+
 class Conta
   attr_reader :numero, :titular #gerenciar forma de ler atributos
   attr_accessor :saldo #gerenciar forma de ler e escrever atributos

@@ -3,9 +3,9 @@ require_relative 'cliente' #carrego por estarem na mesma pasta
 class Conta
   attr_reader :numero, :titular #gerenciar forma de ler atributos
   attr_accessor :saldo #gerenciar forma de ler e escrever atributos
-  def initialize(numero, titular, saldo) #argumentos
+  def initialize(numero, nome, sobrenome, saldo) #argumentos
     @numero = numero #atributos
-    @titular = titular
+    @titular = Cliente.new(nome, sobrenome)# recebe argumentos de outro objeto
     @saldo = saldo
   end
 
